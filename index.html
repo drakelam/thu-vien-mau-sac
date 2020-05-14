@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
+	<title>Thư Viện màu sắc - Bảng màu tùy chỉnh cho lập trình viên Font-End: Drake Lam</title>
+	<meta name="description" content="Bảng màu tùy chỉnh cho lập trình viên Font-End">
+	<link rel="icon" href="favicon.ico">
+	<link rel="manifest" href="drake.json">
+	<meta name="theme-color" content="#ffffff">
+	<!-- Tile icon for Windows 8 (144x144 + tile color) -->
+	<meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-tap-highlight" content="no">
+	<!-- OpenGraph -->
+	<meta property="og:site_name" content="Thư Viện Màu Sắc">
+	<meta property="og:url" content="https://drakelam.github.io/thu-vien-mau-sac">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Colorbook">
+	<meta property="og:description" content="Bảng màu tùy chỉnh cho lập trình viên Font-End: Drake Lam">
+	<meta property="og:image" content="icons/icon-144x144.png">
+		<!-- Web Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:700|Roboto+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<script src="https://drakelam.github.io/drakelam.min.js/drakelam.min.js"></script>
+	<script>
+		if ("serviceWorker" in navigator) {
+			window.addEventListener("load", function() {
+				navigator.serviceWorker.register("sw.js").then(function(registration) {
+					console.log("Đăng ký ServiceWorker thành công với phạm vi: ", registration.scope);
+				}).catch(function(err) {
+					console.log("Đăng ký dịch vụ không thành công: ", err);
+				});
+			});
+		}
+
+	</script>
+</head>
+
+<body>
+	<main>
+		<header>
+			<div class="flex">
+				<h1 class="logo">Thư viện màu sắc</h1>
+				<div class="flex"></div>
+				<button id="convert" onclick="convert()">HEX ↔ RGB</button>
+				<button onclick="window.open('https://github.com/drakelam/thu-vien-mau-sac', '_blank')"><img src="icons/github.svg" alt="GitHub" style="margin-right: 8px;">GitHub</button>
+			</div>
+			<nav id="navcircles">
+			</nav>
+		</header>
+		<section id="content" contenteditable="true">
+			<h1>Bảng màu tùy chỉnh cho lập trình viên Font-End: Drake Lam</h1>
+		</section>
+		<section id="theming">
+			<nav class="title">
+				<span class="circle" id="combocircle"></span>
+				<h4>Phối màu</h4>
+				<div class="flex"></div>
+				<div>
+					<button id="random">Random ⭯</button>
+				</div>
+				<div>
+					<button id="swap">Swap ⇌</button>
+				</div>
+			</nav>
+			<div class="family">
+				<div class="color">
+					<div class="btn" id="bg-color"></div>
+					<b>Background</b>
+					<input type="text" readonly id="bg" class="hex" onclick="copy(this.id)" value="#000000">
+				</div>
+				<div class="color">
+					<div class="btn" id="color"></div>
+					<b>Foreground</b>
+					<input type="text" readonly id="fg" class="hex" onclick="copy(this.id)" value="#ffffff">
+				</div>
+			</div>
+		</section>
+		<section id="gradient">
+			<nav class="title">
+				<span class="circle" id="gradcircle"></span>
+				<h4>Gradient</h4>
+				<div class="flex"></div>
+				<div>
+					Steps: <input type="number" id="steps" oninput="this.value=this.value.slice(0,this.maxLength)" min="1" max="99" name="steps" value="10" maxlength="2">
+					<button onclick="updateSpitter()">Tạo ↻</button>
+				</div>
+			</nav>
+			<div id="gradcolors"></div>
+		</section>
+		<section id="matcolors"></section>
+		<div id="snackbar">Drake Lam thông báo: Bạn đã sao chép</div>
+	</main>
+	<script src="index.js"></script>
+</body>
+
+</html>
