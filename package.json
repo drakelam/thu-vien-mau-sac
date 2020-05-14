@@ -1,12 +1,12 @@
 {
-	"name": "Colorbook",
+	"name": "Thư Viện Màu Sắc",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/liyasthomas/colorbook.git"
+		"url": "https://github.com/drakelam/thu-vien-mau-sac.git"
 	},
-	"description": "Color schemes for UI design",
-	"author": "liyasthomas",
-	"version": "0.0.1",
+	"description": "Bảng màu tùy chỉnh cho lập trình viên Front-End",
+	"author": "drakelam",
+	"version": "1.0",
 	"devDependencies": {
 		"jshint": "^2.10.2"
 	},
